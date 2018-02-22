@@ -1,12 +1,29 @@
-const express = require('express');
-const React = require('React');
-const renderToString = require('react-dom/server').renderToString;
-const Home = require('./client/components/Home').default;
+import express from 'express';
+import React from 'react';
+import { renderToString } from 'react-dom/server';
+import Home from './client/components/Home';
+
 const app = express();
 
+app.use(express.static('public'));
 app.get('/', (req, res) => {
-    const content = renderToString(<Home/>);
-    res.send(content);
+    //getting the bundle,js file from public folder
+    const content = renderToString(<Home/>); //this is the html of our app
+
+    const html = `
+    <html>
+    <head>
+    <body>
+    <div id='root'">
+    ${content}
+    </div>
+    <script src='bundle.js'></script>
+    </body>
+    </head>
+    </html>
+    `;
+
+    res.send(html);
 });
 
 
