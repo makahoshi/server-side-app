@@ -12,16 +12,12 @@ app.get('/', (req, res) => {
 
     const html = `
     <html>
-    <head>
+    <head></head>
     <body>
-    <div id='root'">
-    ${content}
-    </div>
-    <script src='bundle.js'></script>
+    <div id="root">${content}</div>
+    <script src="bundle.js"></script>
     </body>
-    </head>
-    </html>
-    `;
+    </html>`;
 
     res.send(html);
 });
