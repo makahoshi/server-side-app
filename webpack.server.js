@@ -22,4 +22,4 @@ const config = {
     externals : [webpackNodeExternals()]
 };
 
-module.exports = merge(baseConfig, config);
+moduportle.exports = merge(baseConfig, config);
