@@ -1,13 +1,13 @@
 import React from 'react';
 
-const home = () => {
+const user = () => {
     return (
         <div>
-        <h1>Home component!</h1>
+            <h1>Welcome Makaila!!</h1>
             <button onClick={() => console.log('hi there!')}>Press Me</button>
 
         </div>
 
-)};
+    )};
 
-export default home;
+export default user;
