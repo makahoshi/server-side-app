@@ -6,7 +6,7 @@ const app = express();
 app.use(express.static('public'));
 app.get('/', (req, res) => {
     //getting the bundle,js file from public folder
-    res.send(renderer());
+    res.send(renderer(req));
 });
 
 
