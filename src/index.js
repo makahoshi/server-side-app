@@ -14,7 +14,12 @@ app.get('*', (req, res) => {
     //some logic to initialize and load date into the store
     //calling matchRoutes to determine based on the route what component needs to be rendered
     //matchRoutes looks at the array of routes and the route path and then will return an array of components that will be rendered
-    matchRoutes(Routes, req.path)
+    matchRoutes(Routes, req.path).map(({ route }) => {
+       console.log(route);
+       return route.loadData ? route.loadData() : null;
+    });
+
+    //we call theload data function in here
     res.send(renderer(req, store));
 });
 

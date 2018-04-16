@@ -1,10 +1,9 @@
 import React from 'react';
 import Home from './components/Home';
-import Users from './components/Users';
+import Users, { loadData } from './components/Users';
 import Admin from './components/Admin';
 import Login from './components/Login';
-
-//this file for rout mapping
+//this file for route mapping
 export default [
     {
         path: '/',
@@ -12,6 +11,7 @@ export default [
         component: Home
     },
     {
+        loadData,
         path: '/users',
         exact: true,
         component: Users
@@ -27,6 +27,7 @@ export default [
         component: Login
     }
 ];
+
 /* this is the traditional way to define routes in client side
 export default () => {
     return (
