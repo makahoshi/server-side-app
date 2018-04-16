@@ -5,7 +5,30 @@ import Users from './components/Users';
 import Admin from './components/Admin';
 import Login from './components/Login';
 
-//this file is the routing mapping
+//this file for rout mapping
+export default routes = [
+    {
+        path: '/',
+        exact: true,
+        component: 'Home'
+    },
+    {
+        path: '/users',
+        exact: true,
+        component: 'Users'
+    },
+    {
+        path: '/admin',
+        exact: true,
+        component: 'Admin'
+    },
+    {
+        path: '/login',
+        exact: true,
+        component: 'Login'
+    }
+];
+/* this is the traditional way to define routes in client side
 export default () => {
     return (
         <div>
@@ -17,3 +40,4 @@ export default () => {
         </div>
     );
 };
+>*/
