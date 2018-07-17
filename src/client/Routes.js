@@ -4,6 +4,7 @@ import Users, { loadData } from './components/Users';
 import Admin from './components/Admin';
 import Login from './components/Login';
 //this file for route mapping
+//you can export any function from the component and import here to be used in the index.js where the rendering occurs
 export default [
     {
         path: '/',

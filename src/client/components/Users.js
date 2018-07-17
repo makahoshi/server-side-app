@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import { connect } from 'react-redux'; //connect helper
 import { fetchUsers } from '../actions';
 
 
@@ -30,9 +30,14 @@ function mapStateToProps(state) {
     return { users: state.users };
 }
 
-function loadData() {
-    console.log('load data for users');
+function loadData(store) {
+    //this store is being passed in from the server
+  console.log('load data for users');
+  //this is where we manually dispatch the action creator and then pass that result into the store dispatch
+  return store.dispatch(fetchUsers());
 }
 
 export { loadData };
+
+//this is where we pull the data out from the store
 export default connect(mapStateToProps, { fetchUsers })(Users);
