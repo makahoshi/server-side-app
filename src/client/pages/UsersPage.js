@@ -5,7 +5,9 @@ import { fetchUsers } from '../actions/index';
 
 class UsersPage extends Component {
     componentDidMount() {
-        this.props.fetchUsers(); //when cmoponent mounts onto the page it will grab that list of users
+      //this is an extra api request that we are making to the api so this fetchUsers can be removed
+      //so when you refresh the page you will notice that the users api is not ran on the client side it is only ran on the server side
+      //  this.props.fetchUsers(); //when cmoponent mounts onto the page it will grab that list of users
     }
 
     renderUsers() {

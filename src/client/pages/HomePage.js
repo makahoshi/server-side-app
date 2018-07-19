@@ -11,5 +11,5 @@ const homePage = () => {
 )};
 
 export default {
-    component: HomePage
+    component: homePage
 };

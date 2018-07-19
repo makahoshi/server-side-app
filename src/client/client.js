@@ -10,8 +10,9 @@ import { Provider } from 'react-redux';
 import reducers from './reducers';
 //import reducers and pass it to the store the second argument is the preloaded state
 //creating the client side redux store
-const store = createStore(reducers, {}, applyMiddleware(thunk));
-//this is where we rehydrate the html
+//here we get the inital_state json that we created in the html template and pass it into the client side store
+const store = createStore(reducers, window.INITIAL_STATE, applyMiddleware(thunk));
+//this is where we rehydrate the html and where we pass in the store into the html
 ReactDOM.hydrate(
     <Provider store={store}>
         <BrowserRouter>
