@@ -10,7 +10,7 @@ const app = express();
 app.use(express.static('public'));
 app.get('*', (req, res) => {
     //getting the bundle,js file from public folder
-  //creating the store so that we can pass the store to the load dta function
+  //creating the server side store so that we can pass the store to the load dta function
     const store = createStore();
     //some logic to initialize and load date into the store
   //looks at the request and then based on that request will look at what components need to be rendered on the page
@@ -29,6 +29,7 @@ app.get('*', (req, res) => {
     //here we will wait for the requests to be done
     Promise.all(promises).then(() => {
       //here we know that all of the promises are done which means we can now render the app
+      //this is where we send the static html and the store to the client
       res.send(renderer(req, store));
 
     })

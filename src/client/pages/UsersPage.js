@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux'; //connect helper
-import { fetchUsers } from '../actions';
+import { fetchUsers } from '../actions/index';
 
 
-class Users extends Component {
+class UsersPage extends Component {
     componentDidMount() {
         this.props.fetchUsers(); //when cmoponent mounts onto the page it will grab that list of users
     }
@@ -37,7 +37,9 @@ function loadData(store) {
   return store.dispatch(fetchUsers());
 }
 
-export { loadData };
 
-//this is where we pull the data out from the store
-export default connect(mapStateToProps, { fetchUsers })(Users);
+//this is where we pull the data out from the store in the connect
+export default {
+  loadData: loadData,
+  component : connect(mapStateToProps, { fetchUsers })(UsersPage),
+};

@@ -1,31 +1,31 @@
 import React from 'react';
-import Home from './components/Home';
-import Users, { loadData } from './components/Users';
-import Admin from './components/Admin';
-import Login from './components/Login';
+import HomePage from './pages/HomePage';
+import UsersPage from './pages/UsersPage';
+import AdminPage from './pages/AdminPage';
+import LoginPage from './pages/LoginPage';
 //this file for route mapping
 //you can export any function from the component and import here to be used in the index.js where the rendering occurs
 export default [
     {
+        ...HomePage,
         path: '/',
         exact: true,
-        component: Home
     },
     {
-        loadData,
+        ...UsersPage,
         path: '/users',
         exact: true,
-        component: Users
     },
     {
+        ...AdminPage,
         path: '/admin',
         exact: true,
-        component: Admin
+       // component AdminPage   instead of defining component here we will be defining the component in the component itself in the export statement
     },
     {
+        ...LoginPage,
         path: '/login',
         exact: true,
-        component: Login
     }
 ];
 
