@@ -4,6 +4,7 @@ import { StaticRouter } from 'react-router-dom';
 import { renderRoutes } from 'react-router-config';
 import Routes from '../client/Routes';
 import { Provider } from 'react-redux';
+import serialize from 'serialize-javascript'; //this will be used to protet us from xss attacks
 
 //this file gets rendered on the server
 //we create the static html on the server where we also have access to the redux store
@@ -28,7 +29,7 @@ export default (req, store) => {
     <body>
     <div id="root">${content}</div>
     <script>
-        window.INITIAL_STATE = ${JSON.stringify(store.getState())}
+        window.INITIAL_STATE = ${serialize(store.getState())}
     </script>
     <script src="bundle.js"></script>
     </body>
